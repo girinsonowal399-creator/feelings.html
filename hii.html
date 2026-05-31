@@ -1,0 +1,185 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>feelings.c</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    background:#1e1e1e;
+    font-family:Consolas, monospace;
+    color:#d4d4d4;
+    min-height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    padding:20px;
+}
+
+.editor{
+    width:95%;
+    max-width:900px;
+    background:#252526;
+    border-radius:12px;
+    overflow:hidden;
+    box-shadow:0 0 30px rgba(0,0,0,.5);
+}
+
+.topbar{
+    background:#323233;
+    padding:12px;
+    display:flex;
+    align-items:center;
+    gap:8px;
+}
+.dot{
+    width:12px;
+    height:12px;
+    border-radius:50%;
+}
+
+.red{background:#ff5f57;}
+.yellow{background:#febc2e;}
+.green{background:#28c840;}
+
+.filename{
+    color:white;
+    margin-left:10px;
+}
+
+.terminal{
+    padding:20px;
+    min-height:500px;
+    line-height:1.8;
+}
+
+.line{
+    opacity:0;
+    animation:fade .5s forwards;
+}
+
+@keyframes fade{
+    to{opacity:1;}
+}
+
+input{
+    background:none;
+    border:none;
+    border-bottom:1px solid white;
+    color:#4ec9b0;
+    font-size:16px;
+    outline:none;    margin-left:10px;
+    font-family:inherit;
+}
+
+.hidden{
+    display:none;
+}
+
+.keyword{
+    color:#569cd6;
+}
+
+.string{
+    color:#ce9178;
+}
+</style>
+</head>
+<body>
+
+<div class="editor">
+
+<div class="topbar">
+<div class="dot red"></div>
+<div class="dot yellow"></div>
+<div class="dot green"></div>
+<div class="filename">feelings.c</div>
+</div>
+
+<div class="terminal" id="output"></div>
+
+<div style="padding:20px" class="hidden" id="input1">
+    para jodi yes/no koba msg koribo karone:
+    <input type="text" id="ans1">
+</div>
+
+<div style="padding:20px" class="hidden" id="input2">
+    Will you give us a chance? (yes/no):
+    <input type="text" id="ans2">
+</div>
+
+</div>
+
+<script>
+
+const messages = [
+"Hey...Falguni🤗,",
+"tumak anedore coding t kobo akebare mon nasil kintu face to face tumar logot kotha patibo nuwaru beya napaba heikarone.",
+"tumi ratipuwa uthi sage bhabisa kune msg dise,but beya napaba msg nidi codingt kuwa karone.",
+"tumak 'tumi' buli a hombudhon korisu,tumi buli hombudhon koratu hoitu anusit.tothapiu tumar lagot ak sinakir dore dore hoi porisu.",
+"moi coding likhat himan val nohoi baru,but tumi CSE r karone coding likhisu aruh...",
+"moi anedore tumak coding likhar karone tumi kenekuwa behave kora moi najanu.tumi khong u koribo para tat kunu mur odhikar nai.",
+"mur hridoyar ak sukot tumre alinggon. moi tumr premt pora ajon blind person.",
+"tumr hahi tu bohut dhuniya, mur bhabona bure tumar lgt ak abuj morom jagi tulise.",
+"tumi sage najana moi tumr pemr paksokort humai porilu.",
+"oh.. mur kotha kuwai nai nohoi mur nam tu kobo nuwarim top secret...😅, tumi chashma pindhileu tumar ujol soku dutat moi tumar premt dubi jau.",
+"tumi bhabisa sage aitua ki koi ase, moi indiertly tumak proposed korisu.",
+"mur jibonoloi aabotoriya fagunjakor pora rongin fagun huwa mur falgunipriya.",
+"moi.. tumar premt pora ajon pagol premik.",
+"last kotha ata kou tumak white shirt t bohut dhuniya lage.",
+"moi coding likhat akebare val nohoi holeu tumar karone,C hiki asu.",
+"jodi tumi bhaba j muk ata chance diya then moi tumr logot kotha patiboloi haju asu,(its not a prank its serious)"
+];
+
+const output=document.getElementById("output");
+
+function addLine(text){
+    const div=document.createElement("div");
+    div.className="line";
+    div.innerHTML = text;
+    output.appendChild(div);
+    window.scrollTo(0,document.body.scrollHeight);
+}
+
+
+this.disabled=true;
+
+
+document.getElementById("ans2").addEventListener("keypress",function(e){
+
+if(e.key==="Enter"){
+
+let val=this.value.toLowerCase();
+
+if(val==="yes"){
+
+output.innerHTML += "<br><div>A second chance... Thank you! ❤️</div>";
+output.innerHTML += "<div>then ami msgt kotha patibo parim Jodi paru then say hii.</div>";
+
+}else{
+
+output.innerHTML += "<br><div>I respect your decision.</div>";
+output.innerHTML += "<div>but jodi kunuba ase then say 9</div>";
+output.innerHTML += "<div>jodi nai ba aiburt interested nohoi then pisot jodi interested hoi tetiya chance diba buli ata hosa hope loi thakim.</div>";
+output.innerHTML += "<div>bye dear 🌸</div>";
+
+}
+
+this.disabled=true;
+}
+
+});
+
+</script>
+
+</body>
+</html>
+```
